@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const axios = require("axios");
 const https = require("https");
 const { randomUUID } = require("crypto");
+var cors = require('cors')
 
 // Constants for the server and API configuration
 const port = 3040;
@@ -292,6 +293,7 @@ async function handleChatCompletion(req, res) {
 
 // Initialize Express app and use middlewares
 const app = express();
+app.use(cors())
 app.use(bodyParser.json());
 app.use(enableCORS);
 
